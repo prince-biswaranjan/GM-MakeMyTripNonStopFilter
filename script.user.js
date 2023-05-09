@@ -1,44 +1,24 @@
 // ==UserScript==
-// @name        <Script Name>
+// @name        GM-MakeMyTripNonStopFilter
 // @namespace   https://github.com/pbvirus
-// @description <Script Description>
+// @description Checks the non-stop filter in the flight search results page
 // @author      Prince Biswaranjan
 // @homepage    <Homepage URL>
 // @version     1.0.0
 // @grant       none
-// @include     *
+// @include     https://www.makemytrip.com/flight/search?*
 // @run-at      document-end
 // ==/UserScript==
 
 "use strict";
 
-function addButton(text, onclick, cssObj) {
-    cssObj = cssObj || {position: 'absolute', top: '7%', left:'4%', 'z-index': 3};
-    let button = document.createElement('button'), btnStyle = button.style;
-    document.body.appendChild(button);
-    
-    button.innerHTML = text;
-    button.onclick = onclick;
-    btnStyle.position = 'absolute';
-    
-    Object.keys(cssObj).forEach(key => {
-        btnStyle[key] = cssObj[key];
-    });
-    
-    return button;
+function checkNonStopFilter() {
+    let filterSections = document.getElementsByClassName('filtersOuter');
+    let stopsFilter = filterSections[3].getElementsByTagName('listingFilterCheckbox');
+    let nonStopFilter = stopsFilter[0];
+    nonStopFilter.click();
 }
 
 window.addEventListener('load', () => {
-    let cssProp = {
-        position: 'fixed', 
-        top: '6%', 
-        right:'1%', 
-        'z-index': 10,
-        'background-color': 'red'
-    };
-    addButton('Remove Future Tasks', dummy, cssProp);
+    checkNonStopFilter();
 });
-
-function dummy(){
-
-}
