@@ -3,7 +3,7 @@
 // @namespace   https://github.com/pbvirus
 // @description Checks the non-stop filter in the flight search results page
 // @author      Prince Biswaranjan
-// @homepage    <Homepage URL>
+// @homepage    https://github.com/prince-biswaranjan/GM-MakeMyTripNonStopFilter/
 // @version     1.0.0
 // @grant       none
 // @include     https://www.makemytrip.com/flight/search?*
@@ -14,11 +14,9 @@
 
 function checkNonStopFilter() {
     let filterSections = document.getElementsByClassName('filtersOuter');
-    let stopsFilter = filterSections[3].getElementsByTagName('listingFilterCheckbox');
+    let stopsFilter = filterSections[3].getElementsByTagName('input');
     let nonStopFilter = stopsFilter[0];
     nonStopFilter.click();
 }
 
-window.addEventListener('load', () => {
-    checkNonStopFilter();
-});
+window.setTimeout(checkNonStopFilter, 7 * 1000);
