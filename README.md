@@ -1,2 +1,3 @@
-# Greasemonkey-Script-Templates
-This is a template repository to create Greasemonkey scripts
+# Introduction
+
+This scripts checks the non-stop filter on flight searches on <https://makemytrip.com>.
